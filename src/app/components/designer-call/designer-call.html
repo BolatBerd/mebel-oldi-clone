@@ -1,0 +1,82 @@
+<section class="designer-call">
+  <div class="container">
+
+    <div class="designer-call__wrapper">
+
+      <!-- Левая колонка: темная -->
+      <div class="designer-call__info">
+        <div class="section-label">БЕСПЛАТНО</div>
+        <h2 class="designer-call__title">Вызовите дизайнера на замер</h2>
+        <p class="designer-call__description">
+          Приедет в удобное время, покажет образцы, обсудит электрику и сделает расчёт + проект прямо на месте.
+        </p>
+
+        <ul class="designer-call__benefits">
+          <li *ngFor="let benefit of benefits" class="benefit-item">
+            <span class="benefit-check">✓</span>
+            {{ benefit.text }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Правая колонка: светлая с формой -->
+      <div class="designer-call__form-wrapper">
+
+        <!-- Форма -->
+        <form *ngIf="!isSubmitted" [formGroup]="designerForm" (ngSubmit)="submitForm()" class="designer-form">
+
+          <div class="form-group">
+            <label class="form-label">Ваше имя</label>
+            <input
+              type="text"
+              formControlName="name"
+              placeholder="Имя"
+              class="form-input"
+              [class.is-invalid]="designerForm.get('name')?.invalid && designerForm.get('name')?.touched"
+            >
+            <div class="invalid-feedback" *ngIf="designerForm.get('name')?.invalid && designerForm.get('name')?.touched">
+              Введите имя (минимум 2 буквы)
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Телефон</label>
+            <input
+              type="tel"
+              formControlName="phone"
+              placeholder="+7 (___) ___-__-__"
+              class="form-input"
+              [class.is-invalid]="designerForm.get('phone')?.invalid && designerForm.get('phone')?.touched"
+            >
+            <div class="invalid-feedback" *ngIf="designerForm.get('phone')?.invalid && designerForm.get('phone')?.touched">
+              Введите корректный номер телефона
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit">
+            Получить расчёт за час
+          </button>
+
+          <p class="form-disclaimer">
+            Нажимая кнопку, вы соглашаетесь с обработкой персональных данных и политикой конфиденциальности.
+          </p>
+
+        </form>
+
+        <!-- Экран благодарности -->
+        <div *ngIf="isSubmitted" class="success-message">
+          <div class="success-icon">✅</div>
+          <h3 class="success-title">Заявка отправлена!</h3>
+          <p class="success-text">
+            Дизайнер свяжется с вами в течение 15 минут для согласования времени замера.
+          </p>
+          <button class="btn-reset" (click)="resetForm()">
+            Отправить ещё одну заявку
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

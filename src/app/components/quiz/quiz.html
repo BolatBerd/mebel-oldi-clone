@@ -1,0 +1,101 @@
+<div class="quiz-card">
+
+  <!-- Прогресс-бар -->
+  <div class="progress-container" *ngIf="!isSubmitted">
+    <div class="progress-bar" [style.width.%]="progressPercent"></div>
+  </div>
+
+  <!-- БЛОК 1: ВОПРОСЫ -->
+  <div *ngIf="!isQuizCompleted && !isSubmitted" class="quiz-content">
+    <div class="step-label">ШАГ {{ currentStep + 1 }} ИЗ {{ questions.length }}</div>
+    <h2 class="quiz-title">{{ currentQuestion.title }}</h2>
+
+    <div class="options-grid">
+      <div
+        *ngFor="let option of currentQuestion.options"
+        class="option-card"
+        [class.selected]="isSelected(currentQuestion.id, option.id)"
+        (click)="selectOption(currentQuestion.id, option.id)"
+      >
+        <div class="option-text">{{ option.text }}</div>
+      </div>
+    </div>
+
+    <div class="quiz-nav">
+      <button class="btn-nav btn-back" *ngIf="currentStep > 0" (click)="prevStep()">
+        Назад
+      </button>
+      <button class="btn-nav btn-next" *ngIf="currentStep < questions.length - 1" (click)="nextStep()">
+        Далее →
+      </button>
+    </div>
+  </div>
+
+  <!-- БЛОК 2: ФИНАЛЬНАЯ ФОРМА СО СВОДКОЙ -->
+  <div *ngIf="isQuizCompleted && !isSubmitted" class="quiz-content lead-form-wrapper">
+    <div class="step-label">ШАГ {{ questions.length }} ИЗ {{ questions.length }}</div>
+    <h2 class="quiz-title">Куда отправить расчёт и подарок?</h2>
+    <p class="quiz-subtitle">
+      Оставьте контакты, и мы пришлём расчёт в 3 вариантах с учётом ваших ответов.
+    </p>
+
+    <!-- Сводка ответов -->
+    <div class="summary-list">
+      <div class="summary-item" *ngFor="let question of questions">
+        <div class="summary-label">{{ question.shortTitle }}</div>
+        <div class="summary-value">{{ getAnswerText(question.id) }}</div>
+      </div>
+    </div>
+
+    <!-- Форма контактов -->
+    <form [formGroup]="leadForm" (ngSubmit)="submitLead()" class="lead-form">
+      <div class="form-group">
+        <label class="form-label">Ваше имя</label>
+        <input type="text" formControlName="name" placeholder="Имя" class="form-input"
+               [class.is-invalid]="leadForm.get('name')?.invalid && leadForm.get('name')?.touched">
+        <div class="invalid-feedback" *ngIf="leadForm.get('name')?.invalid && leadForm.get('name')?.touched">
+          Введите имя (минимум 2 буквы)
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Телефон</label>
+        <input type="tel" formControlName="phone" placeholder="+7 (___) ___-__-__" class="form-input"
+               [class.is-invalid]="leadForm.get('phone')?.invalid && leadForm.get('phone')?.touched">
+        <div class="invalid-feedback" *ngIf="leadForm.get('phone')?.invalid && leadForm.get('phone')?.touched">
+          Введите корректный номер телефона
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        Получить расчёт и подарок
+      </button>
+
+      <p class="form-disclaimer">
+        Нажимая кнопку, вы соглашаетесь с обработкой персональных данных и политикой конфиденциальности.
+      </p>
+    </form>
+
+    <button class="btn-nav btn-back-full" (click)="prevStep()">
+      Назад
+    </button>
+
+    <p class="quiz-hint">
+      Ответьте на 4 вопроса и получите персональный расчёт без обязательств.
+    </p>
+  </div>
+
+  <!-- БЛОК 3: ЭКРАН БЛАГОДАРНОСТИ -->
+  <div *ngIf="isSubmitted" class="quiz-content success-screen">
+    <div class="success-icon">✅</div>
+    <h2 class="quiz-title">Заявка успешно отправлена!</h2>
+    <p class="quiz-subtitle">
+      Наш дизайнер свяжется с вами в течение 15 минут.
+    </p>
+
+    <button class="btn-submit btn-submit--secondary" (click)="resetQuiz()">
+      Пройти квиз заново
+    </button>
+  </div>
+
+</div>

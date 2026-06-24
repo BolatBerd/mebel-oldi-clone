@@ -1,0 +1,28 @@
+<section class="stages">
+  <div class="container">
+
+    <!-- Заголовок секции -->
+    <div class="stages__header">
+      <div class="section-label">КАК МЫ РАБОТАЕМ</div>
+      <h2 class="section-title">5 простых шагов к идеальной кухне</h2>
+    </div>
+
+    <!-- Таймлайн -->
+    <div class="stages__timeline">
+
+      <div class="stage-item" *ngFor="let stage of stages; let last = last">
+        <div class="stage-item__circle">
+          <span class="stage-number">{{ stage.number }}</span>
+        </div>
+        <div class="stage-item__content">
+          <h3 class="stage-item__title">{{ stage.title }}</h3>
+          <p class="stage-item__description">{{ stage.description }}</p>
+        </div>
+
+        <!-- Соединительная линия (не для последнего элемента) -->
+        <div class="stage-connector" *ngIf="!last"></div>
+      </div>
+
+    </div>
+  </div>
+</section>

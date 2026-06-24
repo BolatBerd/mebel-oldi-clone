@@ -1,0 +1,273 @@
+.quiz-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Прогресс-бар */
+.progress-container {
+  margin-bottom: 30px;
+  background: #e9ecef;
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #d4af37;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* Контент */
+.step-label {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #8a7e75;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.quiz-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1512;
+  text-align: center;
+}
+
+.quiz-subtitle {
+  text-align: center;
+  color: #6b5d52;
+  margin-bottom: 25px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Сетка вариантов */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.option-card {
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70px;
+  background: #fff;
+
+  &:hover {
+    border-color: #d4af37;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.15);
+  }
+
+  &.selected {
+    border-color: #d4af37;
+    background: rgba(212, 175, 55, 0.08);
+  }
+}
+
+.option-text {
+  font-weight: 600;
+  color: #1a1512;
+  font-size: 15px;
+}
+
+/* Навигация */
+.quiz-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-nav {
+  flex: 1;
+  padding: 14px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.btn-back {
+  background: #8a7e75;
+  color: #fff;
+  &:hover { background: #6b5d52; }
+}
+
+.btn-back-full {
+  width: 100%;
+  background: #1a1512;
+  color: #fff;
+  margin-top: 15px;
+  &:hover { background: #2c2420; }
+}
+
+.btn-next {
+  background: #d4af37;
+  color: #1a1512;
+  &:hover { background: #c4a030; }
+}
+
+/* Сводка ответов */
+.summary-list {
+  margin-bottom: 25px;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e9ecef;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.summary-label {
+  font-size: 14px;
+  color: #6b5d52;
+  font-weight: 500;
+}
+
+.summary-value {
+  font-size: 14px;
+  color: #1a1512;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* Форма */
+.lead-form {
+  max-width: 100%;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1512;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.3s;
+
+  &:focus {
+    outline: none;
+    border-color: #d4af37;
+  }
+
+  &.is-invalid {
+    border-color: #dc3545;
+  }
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: #d4af37;
+  color: #1a1512;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+
+  &:hover {
+    background: #c4a030;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+  }
+
+  &--secondary {
+    background: #8a7e75;
+    color: #fff;
+    margin-top: 20px;
+    &:hover { background: #6b5d52; }
+  }
+}
+
+.form-disclaimer {
+  font-size: 12px;
+  color: #8a7e75;
+  text-align: center;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+.quiz-hint {
+  text-align: center;
+  font-size: 13px;
+  color: #8a7e75;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+/* Экран благодарности */
+.success-screen {
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 56px;
+  margin-bottom: 15px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .quiz-card { padding: 25px 20px; }
+  .quiz-title { font-size: 20px; }
+  .options-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .option-card { padding: 15px 10px; min-height: 60px; }
+  .option-text { font-size: 13px; }
+
+  .summary-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .summary-value {
+    text-align: left;
+  }
+}

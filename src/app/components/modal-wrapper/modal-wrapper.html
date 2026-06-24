@@ -1,0 +1,10 @@
+<div class="modal-overlay" *ngIf="modalConfig.isOpen" (click)="onOverlayClick($event)">
+  <div class="modal-container">
+    <button class="modal-close" (click)="close()">✕</button>
+
+    <!-- Квиз -->
+    <app-quiz *ngIf="modalConfig.type === 'quiz'"></app-quiz>
+
+    <!-- Сюда позже добавим другие модалки (callback, showroom) -->
+  </div>
+</div>

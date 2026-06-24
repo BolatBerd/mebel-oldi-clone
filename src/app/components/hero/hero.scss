@@ -1,0 +1,302 @@
+:host {
+  display: block;
+  background: #2c2420; // Темно-коричневый фон как у шапки
+  color: #fff;
+  padding: 60px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ===== ЛЕВАЯ ЧАСТЬ: КОНТЕНТ ===== */
+.hero__content {
+  max-width: 600px;
+}
+
+/* Бейдж */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border: 1px solid #d4af37;
+  border-radius: 30px;
+  font-size: 14px;
+  color: #d4af37;
+  margin-bottom: 30px;
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Заголовок */
+.hero__title {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 25px;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.text-gold {
+  color: #d4af37;
+}
+
+/* Подзаголовок */
+.hero__subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #b8b0a8;
+  margin-bottom: 15px;
+}
+
+/* Текст про экономию */
+.hero__economy {
+  font-size: 15px;
+  color: #8a7e75;
+  margin-bottom: 35px;
+
+  .text-bold {
+    color: #fff;
+    font-weight: 700;
+  }
+}
+
+/* Кнопки */
+.hero__buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+
+  &--large {
+    padding: 18px 36px;
+    font-size: 17px;
+  }
+
+  &--primary {
+    background: #d4af37;
+    color: #1a1512;
+    border: 2px solid #d4af37;
+
+    &:hover {
+      background: #c4a030;
+      border-color: #c4a030;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #6b5d52;
+
+    &:hover {
+      border-color: #d4af37;
+      color: #d4af37;
+    }
+  }
+}
+
+/* Преимущества */
+.hero__advantages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.advantage {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.advantage__icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #d4af37;
+  flex-shrink: 0;
+}
+
+.advantage__text {
+  font-size: 14px;
+  color: #b8b0a8;
+  line-height: 1.4;
+}
+
+/* ===== ПРАВАЯ ЧАСТЬ: ФОТО ===== */
+.hero__image-wrapper {
+  position: relative;
+}
+
+.hero__image {
+  width: 100%;
+  height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  // Градиент для плавного перехода к фону
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #2c2420, transparent);
+  }
+}
+
+/* Плашка "33 года" */
+.hero__stats-card {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 25px 35px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 10;
+}
+
+.stats-number {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a1512;
+  margin-bottom: 5px;
+}
+
+.stats-text {
+  font-size: 14px;
+  color: #6b5d52;
+  font-weight: 500;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1024px) {
+  .hero__title {
+    font-size: 42px;
+  }
+
+  .hero__image {
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 40px 0 60px;
+  }
+
+  .hero__wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero__content {
+    max-width: 100%;
+  }
+
+  .hero__title {
+    font-size: 32px;
+  }
+
+  .hero__subtitle {
+    font-size: 16px;
+  }
+
+  .hero__buttons {
+    flex-direction: column;
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .hero__advantages {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .hero__image {
+    height: 400px;
+  }
+
+  .hero__stats-card {
+    bottom: -20px;
+    padding: 20px 25px;
+  }
+
+  .stats-number {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: 26px;
+  }
+
+  .hero__badge {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+
+  .btn--large {
+    padding: 15px 25px;
+    font-size: 15px;
+  }
+}

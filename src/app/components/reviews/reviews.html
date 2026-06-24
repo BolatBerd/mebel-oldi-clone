@@ -1,0 +1,37 @@
+<section class="reviews">
+  <div class="container">
+
+    <!-- Заголовок секции -->
+    <div class="reviews__header">
+      <div class="section-label">ОТЗЫВЫ КЛИЕНТОВ</div>
+      <h2 class="section-title">Нам доверяют тысячи семей</h2>
+    </div>
+
+    <!-- Сетка отзывов -->
+    <div class="reviews__grid">
+
+      <div class="review-card" *ngFor="let review of reviews">
+        <div class="review-card__header">
+          <img [src]="review.avatar" [alt]="review.name" class="review-card__avatar">
+          <div class="review-card__info">
+            <h3 class="review-card__name">{{ review.name }}</h3>
+            <div class="review-card__rating">
+              <span class="star" *ngFor="let star of getStars(review.rating)">★</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="review-card__text">{{ review.text }}</p>
+      </div>
+
+    </div>
+
+    <!-- Кнопка -->
+    <div class="reviews__action">
+      <a href="https://yandex.ru/maps/org/oldi/1234567890/reviews/" target="_blank" rel="noopener" class="btn-all-reviews">
+        Читать все отзывы
+      </a>
+    </div>
+
+  </div>
+</section>

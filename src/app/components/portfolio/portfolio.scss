@@ -1,0 +1,178 @@
+:host {
+  display: block;
+  background: #2c2420; // Темный фон как на скриншоте
+  padding: 80px 0;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== ЗАГОЛОВОК СЕКЦИИ ===== */
+.portfolio__header {
+  margin-bottom: 50px;
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #d4af37;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: #b8b0a8;
+  line-height: 1.6;
+}
+
+/* ===== MASONRY-СЕТКА ===== */
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 280px);
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.portfolio-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+
+  // Большая картинка занимает 2 колонки и 2 ряда
+  &.is-large {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+
+  // Остальные картинки по одной ячейке
+  &:not(.is-large) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  // Эффект при наведении (только для десктопа)
+  @media (hover: hover) {
+    &:hover .portfolio-item__image {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.portfolio-item__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+}
+
+/* ===== КНОПКА ===== */
+.portfolio__action {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-calculate {
+  padding: 18px 40px;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+
+  @media (hover: hover) {
+    &:hover {
+      background: #d4af37; // Золотистый фон
+      border-color: #d4af37;
+      color: #1a1512; // Темный текст
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      background: #d4af37;
+      border-color: #d4af37;
+      color: #1a1512;
+    }
+  }
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1024px) {
+  .portfolio__grid {
+    grid-template-rows: repeat(2, 240px);
+  }
+
+  .section-title {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 50px 0;
+  }
+
+  .portfolio__header {
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+  }
+
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    gap: 10px;
+    margin-bottom: 35px;
+  }
+
+  .portfolio-item.is-large {
+    grid-column: 1 / 3; // Большая картинка на всю ширину
+    grid-row: 1 / 2;
+  }
+
+  .btn-calculate {
+    padding: 16px 30px;
+    font-size: 15px;
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 24px;
+  }
+
+  .portfolio__grid {
+    grid-template-rows: repeat(3, 180px);
+  }
+}

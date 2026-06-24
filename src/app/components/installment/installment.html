@@ -1,0 +1,22 @@
+<section class="installment">
+  <div class="container">
+    <div class="installment__wrapper">
+
+      <!-- Левая часть: текст -->
+      <div class="installment__text">
+        <h2 class="installment__title">
+          Рассрочка 0% — кухня сейчас, оплата частями
+        </h2>
+      </div>
+
+      <!-- Правая часть: преимущества -->
+      <div class="installment__features">
+        <div class="feature" *ngFor="let feature of features">
+          <div class="feature__value">{{ feature.value }}</div>
+          <div class="feature__label">{{ feature.label }}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

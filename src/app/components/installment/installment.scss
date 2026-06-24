@@ -1,0 +1,106 @@
+:host {
+  display: block;
+  background: #f5f0e8; // Светло-бежевый фон
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.installment__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Левая часть: текст */
+.installment__text {
+  flex: 1;
+}
+
+.installment__title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a1512;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* Правая часть: преимущества */
+.installment__features {
+  display: flex;
+  gap: 50px;
+  flex-shrink: 0;
+}
+
+.feature {
+  text-align: center;
+}
+
+.feature__value {
+  font-size: 32px;
+  font-weight: 800;
+  color: #d4af37; // Золотистый
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.feature__label {
+  font-size: 14px;
+  color: #6b5d52;
+  font-weight: 500;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 900px) {
+  .installment__wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .installment__title {
+    font-size: 26px;
+  }
+
+  .installment__features {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 40px 0;
+  }
+
+  .installment__title {
+    font-size: 22px;
+  }
+
+  .installment__features {
+    gap: 25px;
+  }
+
+  .feature__value {
+    font-size: 28px;
+  }
+
+  .feature__label {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .installment__features {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .feature {
+    width: 100%;
+  }
+}

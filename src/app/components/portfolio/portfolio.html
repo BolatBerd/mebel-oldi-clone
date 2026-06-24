@@ -1,0 +1,31 @@
+<section class="portfolio">
+  <div class="container">
+
+    <!-- Заголовок секции -->
+    <div class="portfolio__header">
+      <div class="section-label">НАШИ РАБОТЫ</div>
+      <h2 class="section-title">Фанатеем за качество</h2>
+      <p class="section-subtitle">
+        Реальные кухни, которые мы изготовили и установили клиентам.
+      </p>
+    </div>
+
+    <!-- Masonry-сетка -->
+    <div class="portfolio__grid">
+
+      <div class="portfolio-item portfolio-item--large" *ngFor="let item of portfolioItems; let first = first"
+           [class.is-large]="first">
+        <img [src]="item.image" [alt]="item.alt" class="portfolio-item__image">
+      </div>
+
+    </div>
+
+    <!-- Кнопка -->
+    <div class="portfolio__action">
+      <button class="btn-calculate" (click)="openQuiz()">
+        Хочу такую же — рассчитать
+      </button>
+    </div>
+
+  </div>
+</section>

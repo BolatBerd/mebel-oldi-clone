@@ -1,0 +1,45 @@
+<!-- <div class="top-bar"  *ngIf="!isScrolled">
+  <div class="container">
+    <div class="top-bar__content">
+      <div class="top-bar__info">
+        <span class="top-bar__location">Тюмень и область</span>
+        <span class="top-bar__separator">•</span>
+        <span class="top-bar__schedule">Ежедневно 10:00-21:00 • заявки 24/7</span>
+      </div>
+      <div class="top-bar__actions">
+        <a href="#showrooms" class="top-bar__link">Шоурумы</a>
+        <a href="#callback" class="top-bar__link" (click)="openCallbackModal()">Обратный звонок</a>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<header class="header">
+  <div class="container">
+    <div class="header__wrapper">
+      <!-- Логотип -->
+      <a href="/" class="header__logo">
+        <span class="logo-text">Мебель<span class="logo-accent">Олди</span></span>
+      </a>
+
+      <!-- Навигация -->
+      <nav class="header__nav" [class.active]="isMobileMenuOpen">
+        <a href="#catalog" class="nav-link">Каталог</a>
+        <a href="#portfolio" class="nav-link">Портфолио</a>
+        <a href="#reviews" class="nav-link">Отзывы</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+      </nav>
+
+      <!-- Контакты и кнопки -->
+      <div class="header__actions">
+        <a href="tel:+78001234567" class="header__phone">8 (800) 123-45-67</a>
+        <button class="btn btn--primary" (click)="openCallbackModal()">Заказать звонок</button>
+
+        <!-- Бургер-меню для мобильных -->
+        <button class="burger" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

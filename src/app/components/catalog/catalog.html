@@ -1,0 +1,28 @@
+<section class="catalog">
+  <div class="container">
+
+    <!-- Заголовок секции -->
+    <div class="catalog__header">
+      <div class="section-label">ЛЮБАЯ ПЛАНИРОВКА</div>
+      <h2 class="section-title">Делаем кухни под ваше помещение</h2>
+      <p class="section-subtitle">
+        Выберите форму — рассчитаем стоимость именно под ваши размеры.
+      </p>
+    </div>
+
+    <!-- Сетка карточек -->
+    <div class="catalog__grid">
+
+      <div class="catalog-card" *ngFor="let kitchen of kitchenTypes" (click)="openQuiz()">
+        <div class="catalog-card__image-wrapper">
+          <img [src]="kitchen.image" [alt]="kitchen.title" class="catalog-card__image">
+          <div class="catalog-card__overlay"></div>
+        </div>
+        <div class="catalog-card__content">
+          <h3 class="catalog-card__title">{{ kitchen.title }}</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

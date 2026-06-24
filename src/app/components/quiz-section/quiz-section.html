@@ -1,0 +1,46 @@
+<section class="quiz-section">
+  <div class="container">
+
+    <!-- Заголовок секции -->
+    <div class="quiz-section__header">
+      <div class="section-label">РАСЧЁТ ЗА 2 МИНУТЫ</div>
+      <h2 class="section-title">Узнайте стоимость кухни со скидкой 30%</h2>
+      <p class="section-subtitle">
+        Ответьте на 5 вопросов — пришлём расчёт в 3 вариантах, каталог и подарок. Без обязательств.
+      </p>
+    </div>
+
+    <!-- Двухколоночный блок -->
+    <div class="quiz-section__wrapper">
+
+      <!-- Левая колонка: тёмный блок с преимуществами -->
+      <div class="quiz-section__info">
+        <div class="info-label">В КОНЦЕ ВЫ ПОЛУЧИТЕ</div>
+        <h3 class="info-title">Персональный расчёт и подарок</h3>
+        <p class="info-description">
+          Подберём планировку, материалы и фурнитуру под ваш бюджет и помещение.
+        </p>
+
+        <ul class="info-benefits">
+          <li *ngFor="let benefit of benefits" class="benefit-item">
+            <span class="benefit-dot"></span>
+            {{ benefit }}
+          </li>
+        </ul>
+
+        <div class="info-phone">
+          Или позвоните: <a href="tel:+79686551971">+7 (968) 655-19-71</a>
+        </div>
+      </div>
+
+      <!-- Правая колонка: квиз -->
+      <div class="quiz-section__quiz">
+        <app-quiz></app-quiz>
+        <div class="quiz-hint">
+          Ответьте на 4 вопроса и получите персональный расчёт без обязательств.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

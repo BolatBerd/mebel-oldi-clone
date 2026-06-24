@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================================
+   ГЛОБАЛЬНЫЙ СБРОС СТИЛЕЙ (CSS RESET)
+   ========================================= */
+
+/* Сбрасываем отступы и настраиваем box-sizing для всех элементов */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Убираем отступы у html и body, растягиваем на всю ширину */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Предотвращает появление горизонтального скролла */
+
+  /* Базовые настройки шрифта для всего сайта */
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Сбрасываем стандартные стили ссылок */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* Убираем стандартные стили кнопок и инпутов */
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Сброс списков */
+ul, ol {
+  list-style: none;
+}
+
+/* Сброс картинок */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

@@ -1,0 +1,39 @@
+<section class="faq">
+  <div class="container">
+
+    <!-- Заголовок секции -->
+    <div class="faq__header">
+      <div class="section-label">ЧАСТЫЕ ВОПРОСЫ</div>
+      <h2 class="section-title">Отвечаем заранее</h2>
+    </div>
+
+    <!-- Аккордеон -->
+    <div class="faq__list">
+
+      <div class="faq-item" *ngFor="let item of faqItems; let i = index">
+
+        <!-- Вопрос (кнопка) -->
+        <button class="faq-item__question" (click)="toggleFaq(i)">
+          <span class="faq-item__question-text">{{ item.question }}</span>
+          <span class="faq-item__icon" [class.is-open]="isOpen(i)">
+            <svg *ngIf="!isOpen(i)" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <svg *ngIf="isOpen(i)" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 5L19 19M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </button>
+
+        <!-- Ответ (раскрывается) -->
+        <div class="faq-item__answer-wrapper" [class.is-open]="isOpen(i)">
+          <div class="faq-item__answer">
+            {{ item.answer }}
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

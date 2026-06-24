@@ -1,0 +1,199 @@
+:host {
+  display: block;
+  background: #f5f0e8; // Светло-бежевый фон секции
+  padding: 80px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== ЗАГОЛОВОК СЕКЦИИ ===== */
+.why-us__header {
+  margin-bottom: 50px;
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #d4af37; // Золотистый
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #1a1512;
+  line-height: 1.2;
+  max-width: 700px;
+}
+
+/* ===== СЕТКА КАРТОЧЕК ===== */
+.why-us__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* ===== КАРТОЧКА ПРЕИМУЩЕСТВА ===== */
+.advantage-card {
+  background: #ede7dd;
+  border-radius: 16px;
+  padding: 35px 30px;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: default;
+  position: relative;
+
+  // Десктоп: эффект при наведении
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(26, 21, 18, 0.15);
+      background: #fff;
+    }
+
+    &:hover .advantage-card__icon {
+      background: #d4af37;
+      transform: scale(1.05);
+    }
+
+    &:hover .icon-symbol {
+      color: #1a1512;
+    }
+  }
+
+  // Мобильные: эффект при касании
+  @media (hover: none) {
+    &:active {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(26, 21, 18, 0.1);
+      background: #fff;
+    }
+
+    &:active .advantage-card__icon {
+      background: #d4af37;
+    }
+
+    &:active .icon-symbol {
+      color: #1a1512;
+    }
+  }
+
+
+  // Эффект при наведении
+  &:hover {
+    transform: translateY(-8px); // Приподнимаем карточку
+    box-shadow: 0 20px 40px rgba(26, 21, 18, 0.15); // Мягкая тень
+    background: #fff; // Фон становится белым
+  }
+}
+
+/* Иконка в круге */
+.advantage-card__icon {
+  width: 56px;
+  height: 56px;
+  background: #2c2420; // Тёмный круг
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  transition: all 0.4s ease;
+
+  // При наведении иконка тоже слегка меняется
+  .advantage-card:hover & {
+    background: #d4af37; // Золотистый при наведении
+    transform: scale(1.05);
+  }
+}
+
+.icon-symbol {
+  font-size: 24px;
+  font-weight: 700;
+  color: #d4af37; // Золотистый символ
+  line-height: 1;
+
+  // При наведении символ становится тёмным (т.к. фон стал золотистым)
+  .advantage-card:hover & {
+    color: #1a1512;
+  }
+}
+
+/* Заголовок карточки */
+.advantage-card__title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1512;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+/* Описание карточки */
+.advantage-card__description {
+  font-size: 15px;
+  color: #6b5d52;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1024px) {
+  .why-us__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-title {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 50px 0;
+  }
+
+  .why-us__header {
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .why-us__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .advantage-card {
+    padding: 25px 20px;
+
+    &:hover {
+      transform: translateY(-5px); // Меньше приподнимаем на мобильных
+    }
+  }
+
+  .advantage-card__title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 24px;
+  }
+
+  .advantage-card__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+  }
+
+  .icon-symbol {
+    font-size: 20px;
+  }
+}

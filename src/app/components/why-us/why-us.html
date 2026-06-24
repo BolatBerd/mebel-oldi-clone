@@ -1,0 +1,23 @@
+<section class="why-us">
+  <div class="container">
+
+    <!-- Заголовок секции -->
+    <div class="why-us__header">
+      <div class="section-label">ПОЧЕМУ ОЛДИ</div>
+      <h2 class="section-title">Почему выгоднее заказать кухню у нас</h2>
+    </div>
+
+    <!-- Сетка карточек -->
+    <div class="why-us__grid">
+
+      <div class="advantage-card" *ngFor="let adv of advantages">
+        <div class="advantage-card__icon">
+          <span class="icon-symbol">{{ adv.icon }}</span>
+        </div>
+        <h3 class="advantage-card__title">{{ adv.title }}</h3>
+        <p class="advantage-card__description">{{ adv.description }}</p>
+      </div>
+
+    </div>
+  </div>
+</section>

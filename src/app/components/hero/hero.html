@@ -1,0 +1,68 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero__wrapper">
+
+      <!-- Левая часть: Контент -->
+      <div class="hero__content">
+
+        <!-- Бейдж с акцией -->
+        <div class="hero__badge">
+          <span class="badge-dot"></span>
+          Бесплатный замер и 3D-проект до 30 июня
+        </div>
+
+        <!-- Заголовок -->
+        <h1 class="hero__title">
+          Кухни на заказ<br>
+          напрямую <span class="text-gold">от производителя</span> —<br>
+          выгода до 30%
+        </h1>
+
+        <!-- Подзаголовок -->
+        <p class="hero__subtitle">
+          Индивидуальный проект, своё производство и монтаж под ключ. Без посредников и накруток.
+        </p>
+
+        <!-- Текст про экономию -->
+        <p class="hero__economy">
+          Экономия <span class="text-bold">до 90 000 ₽</span> в сравнении с салонами · срок изготовления от 14 дней
+        </p>
+
+        <!-- Кнопки -->
+        <div class="hero__buttons">
+          <button class="btn btn--primary btn--large" (click)="openQuizModal()">
+            Рассчитать стоимость за 2 минуты
+          </button>
+          <button class="btn btn--outline btn--large" (click)="scrollToPortfolio()">
+            Посмотреть работы
+          </button>
+        </div>
+
+        <!-- Преимущества -->
+        <div class="hero__advantages">
+          <div class="advantage" *ngFor="let adv of advantages">
+            <div class="advantage__icon">{{ adv.icon }}</div>
+            <div class="advantage__text">{{ adv.text }}</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Правая часть: Фото кухни -->
+      <div class="hero__image-wrapper">
+        <div class="hero__image">
+          <!-- Здесь будет реальное фото кухни -->
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80"
+               alt="Современная кухня на заказ">
+        </div>
+
+        <!-- Плашка "33 года" -->
+        <div class="hero__stats-card">
+          <div class="stats-number">33 года</div>
+          <div class="stats-text">на рынке кухонной мебели</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

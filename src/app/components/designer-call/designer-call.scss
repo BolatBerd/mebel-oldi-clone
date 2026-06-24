@@ -1,0 +1,294 @@
+:host {
+  display: block;
+  background: #f5f0e8; // Светло-бежевый фон секции
+  padding: 80px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== ДВУХКОЛОНОЧНЫЙ LAYOUT ===== */
+.designer-call__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== ЛЕВАЯ КОЛОНКА: ТЕМНАЯ ===== */
+.designer-call__info {
+  background: #2c2420; // Темно-коричневый
+  padding: 60px 50px;
+  color: #fff;
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #d4af37; // Золотистый
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.designer-call__title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.designer-call__description {
+  font-size: 16px;
+  color: #b8b0a8;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+/* Список преимуществ */
+.designer-call__benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  font-size: 16px;
+  color: #e8e0d8;
+  line-height: 1.4;
+}
+
+.benefit-check {
+  width: 24px;
+  height: 24px;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #d4af37;
+  flex-shrink: 0;
+}
+
+/* ===== ПРАВАЯ КОЛОНКА: СВЕТЛАЯ ===== */
+.designer-call__form-wrapper {
+  background: #fff;
+  padding: 60px 50px;
+  display: flex;
+  align-items: center;
+}
+
+/* Форма */
+.designer-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1512;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #fff;
+
+  &:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  }
+
+  &::placeholder {
+    color: #8a7e75;
+  }
+
+  &.is-invalid {
+    border-color: #dc3545;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+    }
+  }
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* Кнопка отправки */
+.btn-submit {
+  width: 100%;
+  padding: 18px;
+  background: #d4af37; // Золотистый
+  border: none;
+  border-radius: 8px;
+  color: #1a1512;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+
+  @media (hover: hover) {
+    &:hover {
+      background: #c4a030;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+/* Текст о согласии */
+.form-disclaimer {
+  font-size: 12px;
+  color: #8a7e75;
+  text-align: center;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+/* ===== ЭКРАН БЛАГОДАРНОСТИ ===== */
+.success-message {
+  text-align: center;
+  width: 100%;
+}
+
+.success-icon {
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+
+.success-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1512;
+  margin-bottom: 15px;
+}
+
+.success-text {
+  font-size: 15px;
+  color: #6b5d52;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.btn-reset {
+  padding: 14px 30px;
+  background: transparent;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  color: #d4af37;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      background: #d4af37;
+      color: #1a1512;
+    }
+  }
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1024px) {
+  .designer-call__info {
+    padding: 50px 40px;
+  }
+
+  .designer-call__form-wrapper {
+    padding: 50px 40px;
+  }
+
+  .designer-call__title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 50px 0;
+  }
+
+  .designer-call__wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .designer-call__info {
+    padding: 40px 30px;
+  }
+
+  .designer-call__form-wrapper {
+    padding: 40px 30px;
+  }
+
+  .designer-call__title {
+    font-size: 26px;
+  }
+
+  .designer-call__description {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+
+  .benefit-item {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .designer-call__info {
+    padding: 30px 20px;
+  }
+
+  .designer-call__form-wrapper {
+    padding: 30px 20px;
+  }
+
+  .designer-call__title {
+    font-size: 22px;
+  }
+
+  .form-input {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  .btn-submit {
+    padding: 16px;
+    font-size: 15px;
+  }
+}

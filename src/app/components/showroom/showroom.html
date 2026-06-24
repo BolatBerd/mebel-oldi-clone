@@ -1,0 +1,38 @@
+<section class="showroom">
+  <div class="showroom__overlay"></div>
+  <div class="container">
+
+    <div class="showroom__content">
+
+      <!-- Заголовок -->
+      <div class="section-label">ПРИХОДИТЕ В ГОСТИ</div>
+      <h2 class="showroom__title">
+        Посетите шоурум и получите <span class="text-gold">20 000 ₽</span> на кухню
+      </h2>
+
+      <!-- Описание -->
+      <p class="showroom__description">
+        Запишитесь на удобное время — проведём индивидуальную экскурсию,
+        покажем материалы и фурнитуру вживую. Плюс подарки от компании.
+      </p>
+
+      <!-- Кнопка -->
+      <button class="btn-showroom" (click)="openShowroomModal()">
+        Записаться в шоурум
+      </button>
+
+      <!-- Адреса -->
+      <div class="showroom__locations">
+        <div class="location" *ngFor="let location of locations">
+          <div class="location__address">{{ location.address }}</div>
+          <div class="location__info">
+            <span class="location__name">{{ location.name }}</span>
+            <span class="location__separator">•</span>
+            <span class="location__hours">{{ location.hours }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

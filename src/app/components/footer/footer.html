@@ -1,0 +1,69 @@
+<footer class="footer">
+  <div class="container">
+
+    <!-- Основной блок футера -->
+    <div class="footer__main">
+
+      <!-- Колонка 1: Логотип и описание -->
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <div class="logo-box">
+            <span class="logo-main">ОЛДИ</span>
+            <div class="logo-sub">
+              <span class="logo-sub__site">OLDIMEBEL.RU</span>
+              <span class="logo-sub__year">С 1992 ГОДА</span>
+              <span class="logo-sub__city">сделано в Тюмени</span>
+            </div>
+          </div>
+        </a>
+        <p class="footer__description">
+          Производство кухонь на заказ в Тюмень и области. Напрямую от производителя — 33 года на рынке.
+        </p>
+      </div>
+
+      <!-- Колонка 2: Навигация -->
+      <div class="footer__nav">
+        <div class="footer__nav-title">РАЗДЕЛЫ</div>
+        <ul class="footer__nav-list">
+          <li *ngFor="let item of navItems">
+            <a [href]="item.href" class="footer__nav-link">
+              {{ item.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Колонка 3: Контакты -->
+      <div class="footer__contacts">
+        <div class="footer__contacts-title">КОНТАКТЫ</div>
+
+        <a href="tel:+79686551971" class="footer__phone">+7 (968) 655-19-71</a>
+
+        <div class="footer__locations">
+          <div class="location" *ngFor="let location of locations">
+            <div class="location__address">
+              <strong>{{ location.address }}</strong>
+              <span class="location__info">
+                {{ location.name }} · {{ location.hours }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__schedule">
+          Ежедневно 10:00-21:00 · заявки 24/7
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Нижняя полоса: юр. информация -->
+    <div class="footer__bottom">
+      <div class="footer__legal">
+        ИП Марковский Илья Павлович · ИНН 720306307200 · ОГРНИП 325723200131757
+      </div>
+      <a href="/privacy" class="footer__privacy">Политика конфиденциальности</a>
+    </div>
+
+  </div>
+</footer>

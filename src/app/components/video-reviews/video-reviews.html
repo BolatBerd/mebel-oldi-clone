@@ -1,0 +1,84 @@
+<section class="video-reviews">
+  <div class="container">
+
+    <!-- Заголовок секции -->
+    <div class="video-reviews__header">
+      <div class="section-label">ОТЗЫВЫ</div>
+      <h2 class="section-title">Клиенты рассказывают о нас</h2>
+    </div>
+
+    <!-- Карусель -->
+    <div class="video-reviews__carousel">
+
+      <!-- Стрелка влево -->
+      <button class="carousel-arrow carousel-arrow--prev" (click)="prev()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- Карточки видео -->
+      <div class="video-reviews__track">
+
+        <div class="video-card" *ngFor="let review of visibleReviews">
+
+          <!-- Превью видео -->
+          <div class="video-card__preview" (click)="openVideo(review.videoUrl)">
+            <img [src]="review.thumbnail" [alt]="review.title" class="video-card__thumbnail">
+
+            <!-- Оверлей с элементами управления -->
+            <div class="video-card__overlay">
+              <!-- Верхняя панель -->
+              <div class="video-card__top-bar">
+                <div class="video-card__logo">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#00A5E8">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  <span>{{ review.title }}</span>
+                </div>
+                <button class="video-card__share">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Кнопка Play -->
+              <div class="video-card__play-button">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+
+              <!-- Нижняя плашка -->
+              <div class="video-card__bottom-bar">
+                <span>Смотреть на <strong>RUTUBE</strong></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Стрелка вправо -->
+      <button class="carousel-arrow carousel-arrow--next" (click)="next()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Точки-индикаторы -->
+    <div class="video-reviews__dots">
+      <button
+        *ngFor="let _ of [].constructor(totalDots); let i = index"
+        class="dot"
+        [class.active]="i === activeDotIndex"
+        (click)="goTo(i)">
+      </button>
+    </div>
+
+  </div>
+</section>
