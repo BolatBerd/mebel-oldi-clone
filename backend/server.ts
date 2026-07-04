@@ -36,7 +36,7 @@ app.post('/api/send-quiz', async (req, res) => {
         <p><strong>Телефон:</strong> ${contacts.phone}</p>
 
         <h3>Ответы:</h3>
-        <pre>${JSON.stringify(answers, null, 2)}</pre>
+        <pre>${ JSON.stringify(answers, null, 2) }</pre>
       `
     };
 
