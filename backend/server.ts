@@ -15,8 +15,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: process.env.EMAIL_USER,     // Ваша почта
-    pass: process.env.EMAIL_PASS      // Пароль или App Password
+    user: process.env['EMAIL_USER'],     // Ваша почта
+    pass: process.env['EMAIL_PASS']      // Пароль или App Password
   }
 });
 
@@ -26,7 +26,7 @@ app.post('/api/send-quiz', async (req, res) => {
     const { answers, contacts } = req.body;
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env['EMAIL_USER'],
       to: 'your-email@example.com',
       subject: `🎯 Новая заявка с квиза от ${contacts.name}`,
       html: `
@@ -48,7 +48,7 @@ app.post('/api/send-quiz', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env['PORT'] || 3000;
 app.listen(PORT, () => {
   console.log(`✅ Сервер запущен на http://localhost:${PORT}`);
 });
