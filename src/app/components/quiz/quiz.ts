@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Email } from '../../services/email';
 
 // Интерфейсы для типизации данных
 interface QuizOption {
@@ -82,7 +83,7 @@ export class QuizComponent implements OnInit {
   // 3. Форма для сбора контактов (Финальный шаг)
   leadForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private emailService: Email) {}
 
   ngOnInit() {
     this.leadForm = this.fb.group({
@@ -147,11 +148,20 @@ export class QuizComponent implements OnInit {
   // Отправка финальной формы
   submitLead() {
     if (this.leadForm.valid) {
-      console.log('Отправка заявки:', {
+      const payload = {
         answers: this.answers,
-        contacts: this.leadForm.value
+        contacts: this.leadForm.value,
+      };
+
+      this.emailService.sendQuizRequest(payload).subscribe({
+        next: () => {
+          this.isSubmitted = true;
+        },
+        error: () => {
+          console.error('Ошибка отправки заявки');
+          this.isSubmitted = true;
+        }
       });
-       this.isSubmitted = true;
     } else {
       this.leadForm.markAllAsTouched();
     }
