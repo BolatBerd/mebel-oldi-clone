@@ -67,9 +67,23 @@
         </div>
       </div>
 
-      <button type="submit" class="btn-submit">
-        Получить расчёт и подарок
+      <div class="form-group form-group--checkbox">
+        <label class="form-checkbox">
+          <input type="checkbox" formControlName="consent">
+          <span>Согласен на обработку персональных данных</span>
+        </label>
+        <div class="invalid-feedback" *ngIf="leadForm.get('consent')?.invalid && leadForm.get('consent')?.touched">
+          Подтвердите согласие
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Отправка...' : 'Получить расчёт и подарок' }}
       </button>
+
+      <p class="invalid-feedback" *ngIf="submitError">
+        {{ submitError }}
+      </p>
 
       <p class="form-disclaimer">
         Нажимая кнопку, вы соглашаетесь с обработкой персональных данных и политикой конфиденциальности.

@@ -79,6 +79,8 @@ export class QuizComponent implements OnInit {
   answers: { [key: number]: number } = {}; // Хранилище ответов: { id_вопроса: id_ответа }
   isQuizCompleted: boolean = false;
   isSubmitted: boolean = false;
+  isSubmitting: boolean = false;
+  submitError: string | null = null;
 
   // 3. Форма для сбора контактов (Финальный шаг)
   leadForm!: FormGroup;
@@ -147,24 +149,31 @@ export class QuizComponent implements OnInit {
 
   // Отправка финальной формы
   submitLead() {
-    if (this.leadForm.valid) {
-      const payload = {
-        answers: this.answers,
-        contacts: this.leadForm.value,
-      };
-
-      this.emailService.sendQuizRequest(payload).subscribe({
-        next: () => {
-          this.isSubmitted = true;
-        },
-        error: () => {
-          console.error('Ошибка отправки заявки');
-          this.isSubmitted = true;
-        }
-      });
-    } else {
+    if (this.leadForm.invalid) {
       this.leadForm.markAllAsTouched();
+      this.submitError = 'Заполните все поля и подтвердите согласие.';
+      return;
     }
+
+    this.isSubmitting = true;
+    this.submitError = null;
+
+    const payload = {
+      answers: this.answers,
+      contacts: this.leadForm.value,
+    };
+
+    this.emailService.sendQuizRequest(payload).subscribe({
+      next: () => {
+        this.isSubmitted = true;
+        this.isSubmitting = false;
+      },
+      error: (err) => {
+        console.error('Ошибка отправки заявки', err);
+        this.isSubmitting = false;
+        this.submitError = 'Не удалось отправить заявку. Проверьте подключение к серверу или настройки почты.';
+      }
+    });
   }
 
   resetQuiz() {
@@ -172,6 +181,8 @@ export class QuizComponent implements OnInit {
     this.answers = {};
     this.isQuizCompleted = false;
     this.isSubmitted = false;
+    this.isSubmitting = false;
+    this.submitError = null;
     this.leadForm.reset();
     // Прокручиваем к началу квиза
     window.scrollTo({ top: 0, behavior: 'smooth' });

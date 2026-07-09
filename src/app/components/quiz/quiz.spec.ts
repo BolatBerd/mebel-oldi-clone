@@ -20,4 +20,12 @@ describe('Quiz', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render a consent checkbox for the lead form', () => {
+    fixture.detectChanges();
+
+    const consentCheckbox = fixture.nativeElement.querySelector('input[type="checkbox"][formControlName="consent"]');
+
+    expect(consentCheckbox).toBeTruthy();
+  });
 });

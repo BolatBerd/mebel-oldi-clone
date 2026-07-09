@@ -15,6 +15,15 @@ interface CallbackPayload {
   phone: string;
 }
 
+interface GenericEmailPayload {
+  type: 'quiz' | 'callback';
+  answers?: Record<number, number>;
+  contacts: {
+    name: string;
+    phone: string;
+  };
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -26,7 +35,10 @@ export class Email {
   }
 
   sendCallback(name: string, phone: string): Observable<{ success: boolean; message?: string }> {
-    const payload: CallbackPayload = { name, phone };
-    return this.http.post<{ success: boolean; message?: string }>('/api/send-callback', payload);
+    const payload: GenericEmailPayload = {
+      type: 'callback',
+      contacts: { name, phone }
+    };
+    return this.http.post<{ success: boolean; message?: string }>('/api/send-quiz', payload);
   }
 }

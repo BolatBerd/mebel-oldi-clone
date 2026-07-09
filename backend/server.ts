@@ -23,20 +23,30 @@ const transporter = nodemailer.createTransport({
 // Эндпоинт для отправки заявки
 app.post('/api/send-quiz', async (req, res) => {
   try {
-    const { answers, contacts } = req.body;
+    if (!process.env['EMAIL_USER'] || !process.env['EMAIL_PASS']) {
+      return res.status(500).json({
+        success: false,
+        message: 'SMTP credentials are not configured on the server'
+      });
+    }
+
+    const { type, answers, contacts } = req.body;
+    const recipient = process.env['EMAIL_TO'] || process.env['EMAIL_USER'];
+    const isCallback = type === 'callback';
 
     const mailOptions = {
       from: process.env['EMAIL_USER'],
-      to: 'your-email@example.com',
-      subject: `🎯 Новая заявка с квиза от ${contacts.name}`,
+      to: recipient,
+      subject: isCallback
+        ? `📞 Новая заявка с формы обратного звонка от ${contacts.name}`
+        : `🎯 Новая заявка с квиза от ${contacts.name}`,
       html: `
-        <h2>Новая заявка с квиза</h2>
+        <h2>${isCallback ? 'Новая заявка с формы обратного звонка' : 'Новая заявка с квиза'}</h2>
         <h3>Контакты:</h3>
         <p><strong>Имя:</strong> ${contacts.name}</p>
         <p><strong>Телефон:</strong> ${contacts.phone}</p>
 
-        <h3>Ответы:</h3>
-        <pre>${ JSON.stringify(answers, null, 2) }</pre>
+        ${answers ? `<h3>Ответы:</h3><pre>${JSON.stringify(answers, null, 2)}</pre>` : ''}
       `
     };
 
