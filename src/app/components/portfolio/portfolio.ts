@@ -21,31 +21,31 @@ export class PortfolioComponent {
   portfolioItems: PortfolioItem[] = [
     {
       id: 1,
-      image: '../img/Foto-mebel-1.png',
+      image: '../img/Foto-mebel-1',
       alt: 'Угловая кухня с деревянными фасадами',
       size: 'large'
     },
     {
       id: 2,
-      image: '../img/Foto-mebel-2.png',
+      image: '../img/Foto-mebel-2.jpg',
       alt: 'Современная белая кухня',
       size: 'small'
     },
     {
       id: 3,
-      image: '../img/Foto-mebel-3.png',
+      image: '../img/Foto-mebel-3.jpg',
       alt: 'Серая кухня с подсветкой',
       size: 'small'
     },
     {
       id: 4,
-      image: '../img/Foto-mebel-4.png',
+      image: '../img/Foto-mebel-4.jpg',
       alt: 'Зеленая кухня в классическом стиле',
       size: 'small'
     },
     {
       id: 5,
-      image: '../img/Foto-mebel-5.png',
+      image: '../img/Foto-mebel-5.jpg',
       alt: 'Белая прямая кухня',
       size: 'small'
     }
