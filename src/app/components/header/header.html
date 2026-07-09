@@ -19,20 +19,22 @@
     <div class="header__wrapper">
       <!-- Логотип -->
       <a href="/" class="header__logo">
-        <span class="logo-text">Мебель<span class="logo-accent">Олди</span></span>
+        <span class="logo-text">
+          <span class="logo-accent">Муслим-Мебель</span>
+        </span>
       </a>
 
       <!-- Навигация -->
       <nav class="header__nav" [class.active]="isMobileMenuOpen">
-        <a href="#catalog" class="nav-link">Каталог</a>
-        <a href="#portfolio" class="nav-link">Портфолио</a>
-        <a href="#reviews" class="nav-link">Отзывы</a>
-        <a href="#contacts" class="nav-link">Контакты</a>
+        <a href="#catalog" class="nav-link" (click)="closeMenuAndNavigate()">Каталог</a>
+        <a href="#portfolio" class="nav-link" (click)="closeMenuAndNavigate()">Портфолио</a>
+        <a href="#reviews" class="nav-link" (click)="closeMenuAndNavigate()">Отзывы</a>
+        <a href="#contacts" class="nav-link" (click)="closeMenuAndNavigate()">Контакты</a>
       </nav>
 
       <!-- Контакты и кнопки -->
       <div class="header__actions">
-        <a href="tel:+78001234567" class="header__phone">8 (800) 123-45-67</a>
+        <a href="tel:+78001234567" class="header__phone">8 (800) 123-12-12</a>
         <button class="btn btn--primary" (click)="openCallbackModal()">Заказать звонок</button>
 
         <!-- Бургер-меню для мобильных -->

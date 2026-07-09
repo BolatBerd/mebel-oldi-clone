@@ -21,31 +21,31 @@ export class PortfolioComponent {
   portfolioItems: PortfolioItem[] = [
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
+      image: '../img/Foto-mebel-1.png',
       alt: 'Угловая кухня с деревянными фасадами',
       size: 'large'
     },
     {
       id: 2,
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
+      image: '../img/Foto-mebel-2.png',
       alt: 'Современная белая кухня',
       size: 'small'
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80',
+      image: '../img/Foto-mebel-3.png',
       alt: 'Серая кухня с подсветкой',
       size: 'small'
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80',
+      image: '../img/Foto-mebel-4.png',
       alt: 'Зеленая кухня в классическом стиле',
       size: 'small'
     },
     {
       id: 5,
-      image: 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600&q=80',
+      image: '../img/Foto-mebel-5.png',
       alt: 'Белая прямая кухня',
       size: 'small'
     }

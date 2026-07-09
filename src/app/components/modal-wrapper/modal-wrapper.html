@@ -5,6 +5,9 @@
     <!-- Квиз -->
     <app-quiz *ngIf="modalConfig.type === 'quiz'"></app-quiz>
 
-    <!-- Сюда позже добавим другие модалки (callback, showroom) -->
+    <!-- Обратный звонок -->
+    <app-callback *ngIf="modalConfig.type === 'callback'"></app-callback>
+
+    <!-- Showroom (добавить позже) -->
   </div>
 </div>

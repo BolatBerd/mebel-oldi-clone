@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { ModalService, ModalConfig } from '../../services/modal.service';
 import { QuizComponent } from '../quiz/quiz';
+import { CallbackComponent } from '../callback/callback';
 
 @Component({
   selector: 'app-modal-wrapper',
   standalone: true,
-  imports: [CommonModule, QuizComponent],
+  imports: [CommonModule, QuizComponent, CallbackComponent],
   templateUrl: './modal-wrapper.html',
   styleUrls: ['./modal-wrapper.scss']
 })

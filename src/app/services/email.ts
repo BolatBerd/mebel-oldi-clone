@@ -10,6 +10,11 @@ interface QuizPayload {
   };
 }
 
+interface CallbackPayload {
+  name: string;
+  phone: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -18,5 +23,10 @@ export class Email {
 
   sendQuizRequest(payload: QuizPayload): Observable<{ success: boolean; message?: string }> {
     return this.http.post<{ success: boolean; message?: string }>('/api/send-quiz', payload);
+  }
+
+  sendCallback(name: string, phone: string): Observable<{ success: boolean; message?: string }> {
+    const payload: CallbackPayload = { name, phone };
+    return this.http.post<{ success: boolean; message?: string }>('/api/send-callback', payload);
   }
 }

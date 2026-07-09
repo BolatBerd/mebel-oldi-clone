@@ -21,22 +21,22 @@ export class CatalogComponent {
     {
       id: 1,
       title: 'Прямая',
-      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80'
+      image: '../img/straight.png'
     },
     {
       id: 2,
       title: 'Угловая',
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80'
+      image: '../img/corner_unit.png'
     },
     {
       id: 3,
       title: 'П-образная',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80'
+      image: '../img/P-shaped.png'
     },
     {
       id: 4,
       title: 'С островом',
-      image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80'
+      image: '../img/with_an_island.png'
     }
   ];
 

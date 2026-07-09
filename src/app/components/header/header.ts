@@ -33,4 +33,8 @@ export class Header {
     this.modalService.openModal('callback');
     this.isMobileMenuOpen = false;
   }
+
+  closeMenuAndNavigate() {
+    this.isMobileMenuOpen = false;
+  }
 }

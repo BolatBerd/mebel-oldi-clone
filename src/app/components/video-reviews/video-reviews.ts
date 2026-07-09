@@ -21,35 +21,35 @@ export class VideoReviewsComponent {
   videoReviews: VideoReview[] = [
     {
       id: 1,
-      title: 'Отзыв Олди Мебель',
-      thumbnail: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80',
+      title: 'Отзыв Муслим-Мебель',
+      thumbnail: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80',
       videoUrl: 'https://rutube.ru/video/12345678',
       author: 'Анна М.'
     },
     {
       id: 2,
-      title: 'Отзыв Олди Мебель',
+      title: 'Отзыв Муслим-Мебель',
       thumbnail: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
       videoUrl: 'https://rutube.ru/video/23456789',
       author: 'Дмитрий К.'
     },
     {
       id: 3,
-      title: 'Отзыв Олди Мебель',
+      title: 'Отзыв Муслим-Мебель',
       thumbnail: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80',
       videoUrl: 'https://rutube.ru/video/34567890',
       author: 'Елена С.'
     },
     {
       id: 4,
-      title: 'Отзыв Олди Мебель',
+      title: 'Отзыв Муслим-Мебель',
       thumbnail: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80',
       videoUrl: 'https://rutube.ru/video/45678901',
       author: 'Сергей В.'
     },
     {
       id: 5,
-      title: 'Отзыв Олди Мебель',
+      title: 'Отзыв Муслим-Мебель',
       thumbnail: 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=600&q=80',
       videoUrl: 'https://rutube.ru/video/56789012',
       author: 'Ольга П.'
@@ -75,7 +75,7 @@ export class VideoReviewsComponent {
   get activeDotIndex(): number {
     return Math.floor(this.currentIndex / this.visibleCount);
   }
-  
+
   prev() {
     this.currentIndex = (this.currentIndex - 1 + this.videoReviews.length) % this.videoReviews.length;
   }

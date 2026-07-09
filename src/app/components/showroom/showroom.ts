@@ -20,12 +20,12 @@ export class ShowroomComponent {
   locations: ShowroomLocation[] = [
     {
       address: 'ул. 30 лет Победы, 7/5',
-      name: 'салон «ОЛДИ-Мебель»',
+      name: 'салон «Муслим-Мебель»',
       hours: '10:00-21:00'
     },
     {
       address: 'ул. Газовиков, 40',
-      name: 'салон «ОЛДИ-Мебель»',
+      name: 'салон «Муслим-Мебель»',
       hours: '10:00-21:00'
     }
   ];
@@ -33,6 +33,6 @@ export class ShowroomComponent {
   constructor(private modalService: ModalService) {}
 
   openShowroomModal() {
-    this.modalService.openModal('showroom');
+    this.modalService.openModal('callback');
   }
 }

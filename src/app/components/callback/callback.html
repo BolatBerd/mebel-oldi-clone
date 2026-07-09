@@ -1,0 +1,56 @@
+<div class="callback-card">
+  <!-- Успешная отправка -->
+  <div *ngIf="isSubmitted" class="callback-success">
+    <div class="success-icon">✓</div>
+    <h2 class="success-title">Спасибо!</h2>
+    <p class="success-message">
+      Мы получили вашу заявку. Наш специалист свяжется с вами в течение 15 минут.
+    </p>
+  </div>
+
+  <!-- Форма обратного звонка -->
+  <div *ngIf="!isSubmitted" class="callback-content">
+    <h2 class="callback-title">Обратный звонок</h2>
+    <p class="callback-subtitle">
+      Оставьте ваш номер, и мы свяжемся с вами в течение 15 минут.
+    </p>
+
+    <form [formGroup]="callbackForm" (ngSubmit)="submitCallback()" class="callback-form">
+      <div class="form-group">
+        <label class="form-label">Ваше имя</label>
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Имя"
+          class="form-input"
+          [class.is-invalid]="callbackForm.get('name')?.invalid && callbackForm.get('name')?.touched"
+        >
+        <div class="invalid-feedback" *ngIf="callbackForm.get('name')?.invalid && callbackForm.get('name')?.touched">
+          {{ getErrorMessage('name') }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Ваш телефон</label>
+        <input
+          type="tel"
+          formControlName="phone"
+          placeholder="+7 (___) ___-__-__"
+          class="form-input"
+          [class.is-invalid]="callbackForm.get('phone')?.invalid && callbackForm.get('phone')?.touched"
+        >
+        <div class="invalid-feedback" *ngIf="callbackForm.get('phone')?.invalid && callbackForm.get('phone')?.touched">
+          {{ getErrorMessage('phone') }}
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" [disabled]="isLoading">
+        {{ isLoading ? 'Отправляем...' : 'Заказать звонок' }}
+      </button>
+
+      <p class="form-disclaimer">
+        Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.
+      </p>
+    </form>
+  </div>
+</div>
