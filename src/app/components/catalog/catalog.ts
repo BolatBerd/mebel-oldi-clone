@@ -21,22 +21,22 @@ export class CatalogComponent {
     {
       id: 1,
       title: 'Прямая',
-      image: '../img/straight.png'
+      image: '../img/straight.jpg'
     },
     {
       id: 2,
       title: 'Угловая',
-      image: '../img/corner_unit.png'
+      image: '../img/corner_unit.jpg'
     },
     {
       id: 3,
       title: 'П-образная',
-      image: '../img/P-shaped.png'
+      image: '../img/P-shaped.jpg'
     },
     {
       id: 4,
       title: 'С островом',
-      image: '../img/with_an_island.png'
+      image: '../img/with_an_island.jpg'
     }
   ];
 
