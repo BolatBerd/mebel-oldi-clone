@@ -51,10 +51,10 @@ app.post('/api/send-quiz', async (req, res) => {
     };
 
     await transporter.sendMail(mailOptions);
-    res.json({ success: true, message: 'Письмо отправлено' });
+    return res.json({ success: true, message: 'Письмо отправлено' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ success: false, message: 'Ошибка отправки' });
+    return res.status(500).json({ success: false, message: 'Ошибка отправки' });
   }
 });
 
