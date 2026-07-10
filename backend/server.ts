@@ -56,10 +56,11 @@ app.post('/api/send-quiz', async (req, res) => {
     console.error(error);
     return res.status(500).json({ success: false, message: 'Ошибка отправки' });
   }
-  
+
 });
 
 const PORT = process.env['PORT'] || 3000;
 app.listen(PORT, () => {
   console.log(`✅ Сервер запущен на http://localhost:${PORT}`);
 });
+
