@@ -56,6 +56,7 @@ app.post('/api/send-quiz', async (req, res) => {
     console.error(error);
     return res.status(500).json({ success: false, message: 'Ошибка отправки' });
   }
+  
 });
 
 const PORT = process.env['PORT'] || 3000;
