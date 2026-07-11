@@ -19,6 +19,11 @@ app.use(cors({
 
 app.use(express.json());
 
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 465,
