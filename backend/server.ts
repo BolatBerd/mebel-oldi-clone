@@ -5,6 +5,12 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+console.log('🚀 Starting server...');
+console.log(`📧 EMAIL_USER: ${process.env.EMAIL_USER ? 'Set' : 'NOT SET'}`);
+console.log(`📧 EMAIL_PASS: ${process.env.EMAIL_PASS ? 'Set' : 'NOT SET'}`);
+console.log(`📧 EMAIL_TO: ${process.env.EMAIL_TO || 'NOT SET'}`);
+console.log(`🔌 PORT: ${process.env.PORT || '3000'}`);
+
 const app = express();
 
 // ✅ Разрешаем запросы с вашего домена SprintHost
