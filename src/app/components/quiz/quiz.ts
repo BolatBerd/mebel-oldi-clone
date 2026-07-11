@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Email } from '../../services/email';
+import { EmailService } from '../../services/email';
 
 // Интерфейсы для типизации данных
 interface QuizOption {
@@ -85,7 +85,7 @@ export class QuizComponent implements OnInit {
   // 3. Форма для сбора контактов (Финальный шаг)
   leadForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private emailService: Email) {}
+  constructor(private fb: FormBuilder, private emailService: EmailService) {}
 
   ngOnInit() {
     this.leadForm = this.fb.group({
@@ -158,9 +158,13 @@ export class QuizComponent implements OnInit {
     this.isSubmitting = true;
     this.submitError = null;
 
-    const payload = {
+    const payload: { type: 'quiz'; answers: { [key: number]: number }; contacts: { name: string; phone: string } } = {
+      type: 'quiz',
       answers: this.answers,
-      contacts: this.leadForm.value,
+      contacts: {
+        name: this.leadForm.value.name,
+        phone: this.leadForm.value.phone
+      }
     };
 
     this.emailService.sendQuizRequest(payload).subscribe({
@@ -168,7 +172,7 @@ export class QuizComponent implements OnInit {
         this.isSubmitted = true;
         this.isSubmitting = false;
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('Ошибка отправки заявки', err);
         this.isSubmitting = false;
         this.submitError = 'Не удалось отправить заявку. Проверьте подключение к серверу или настройки почты.';
