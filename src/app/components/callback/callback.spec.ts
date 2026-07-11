@@ -1,25 +1,25 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CallbackComponent } from './callback';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Email } from '../../services/email';
+import { EmailService } from '../../services/email';
 import { of, throwError } from 'rxjs';
 
 describe('CallbackComponent', () => {
   let component: CallbackComponent;
   let fixture: ComponentFixture<CallbackComponent>;
-  let emailService: jasmine.SpyObj<Email>;
+  let emailService: jasmine.SpyObj<EmailService>;
 
   beforeEach(async () => {
-    const emailServiceSpy = jasmine.createSpyObj('Email', ['sendCallback']);
+    const emailServiceSpy = jasmine.createSpyObj('EmailService', ['sendCallback']);
 
     await TestBed.configureTestingModule({
       imports: [CallbackComponent, ReactiveFormsModule],
       providers: [
-        { provide: Email, useValue: emailServiceSpy }
+        { provide: EmailService, useValue: emailServiceSpy }
       ]
     }).compileComponents();
 
-    emailService = TestBed.inject(Email) as jasmine.SpyObj<Email>;
+    emailService = TestBed.inject(EmailService) as jasmine.SpyObj<EmailService>;
     fixture = TestBed.createComponent(CallbackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

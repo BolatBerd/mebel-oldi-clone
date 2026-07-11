@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Email } from '../../services/email';
+import { EmailService } from '../../services/email';
 
 @Component({
   selector: 'app-callback',
@@ -16,7 +16,7 @@ export class CallbackComponent implements OnInit {
   isLoading = false;
 
   private fb = inject(FormBuilder);
-  private emailService = inject(Email);
+  private emailService = inject(EmailService);
 
   ngOnInit() {
     this.initForm();
