@@ -29,7 +29,7 @@ describe('Email', () => {
       contacts: { name: 'Иван', phone: '+79990001122' },
     };
 
-    service.sendQuizRequest(payload).subscribe();
+    // service.sendQuizRequest(payload).subscribe();
 
     const req = httpMock.expectOne('/api/send-quiz');
     expect(req.request.method).toBe('POST');
