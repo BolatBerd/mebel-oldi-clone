@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { Email } from './email';
+import { EmailService } from './email';
 
 describe('Email', () => {
-  let service: Email;
+  let service: EmailService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
     });
-    service = TestBed.inject(Email);
+    service = TestBed.inject(EmailService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 

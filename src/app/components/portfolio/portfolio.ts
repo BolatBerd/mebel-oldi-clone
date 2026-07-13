@@ -21,7 +21,7 @@ export class PortfolioComponent {
   portfolioItems: PortfolioItem[] = [
     {
       id: 1,
-      image: '../img/Foto-mebel-1',
+      image: '../img/Foto-mebel-1.jpg',
       alt: 'Угловая кухня с деревянными фасадами',
       size: 'large'
     },
